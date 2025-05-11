@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Bryt Minds - Exciting Registration!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6fa5; /* Rich Blue */
+            --secondary: #ff7e5f; /* Coral */
+            --accent: #f9c74f; /* Yellow */
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745; /* Brighter Green */
+            --info: #17a2b8; /* Brighter Teal */
+            --warning: #ffc107; /* Brighter Yellow */
+            --danger: #dc3545; /* Brighter Red */
+            --purple: #9d4edd; /* Purple */
+            --teal: #4ecdc4; /* Teal */
+            --sky-blue: #87CEEB;
+            --sunshine-yellow: #FFDA63;
+            --emerald-green: #50C878;
+            --grape-purple: #6F2DA8;
+            --bubblegum-pink: #FFC1CC;
+            --soft-lilac: #E6E6FA;
+            --font-primary: 'Poppins', sans-serif;
+            --font-display: 'Pacifico', cursive;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--soft-lilac) 0%, var(--sky-blue) 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .outer-container {
+            width: 100%;
+            max-width: 850px;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .back-button-main-container {
+            width: 100%;
+            max-width: 850px;
+            margin-bottom: 1rem;
+        }
+
+        .back-button-main {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            background-color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .back-button-main:hover {
+            background-color: white;
+            transform: translateX(-5px);
+            box-shadow: 0 4px 10px rgba(74, 111, 165, 0.2);
+        }
+
+        .back-button-main i {
+            margin-right: 0.7rem;
+        }
+
+        .registration-wizard {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+            padding: 2rem 2.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .wizard-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .wizard-header .brand-title {
+            font-family: var(--font-display);
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin: 0;
+            line-height: 1;
+        }
+        .wizard-header h2 {
+            color: var(--primary);
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .wizard-header p {
+            color: var(--dark);
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0.5rem auto 0;
+            font-size: 1.05rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            margin-bottom: 2.5rem;
+            padding: 0 5px;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            height: 70px;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            z-index: 1;
+        }
+
+        .progress-bar-fill {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            height: 6px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.5s ease-in-out;
+            z-index: 2;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            flex: 1;
+        }
+
+        .progress-step span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            color: #6c757d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border: 3px solid #e9ecef;
+            transition: all 0.4s ease;
+            margin-bottom: 5px;
+        }
+        .progress-step p {
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin: 0;
+            transition: color 0.4s ease;
+            font-weight: 500;
+        }
+
+        .progress-step.active span {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: scale(1.15);
+        }
+        .progress-step.active p {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .progress-step.completed span {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .progress-step.completed p {
+            color: var(--primary);
+        }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(-30px); }
+        }
+        .form-step.exiting {
+            animation: fadeOut 0.4s ease-in forwards;
+        }
+
+        .step-title {
+            color: var(--grape-purple);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .step-title i {
+            margin-right: 0.6rem;
+            color: var(--teal);
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        .form-group label.inline-label {
+            display: inline;
+            margin-left: 0.5rem;
+            font-weight: normal;
+            font-size: 0.85rem;
+        }
+
+        .form-group label.required::after {
+            content: ' *';
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+            color: var(--dark);
+        }
+        .form-control::placeholder {
+            color: #6c757d;
+            opacity: 0.8;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3.5px rgba(74, 111, 165, 0.2);
+            background-color: white;
+        }
+        .form-control.invalid {
+            border-color: var(--danger);
+            box-shadow: 0 0 0 3.5px rgba(220, 53, 69, 0.2);
+        }
+        .error-message {
+            display: block;
+            color: var(--danger);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            min-height: 1rem;
+            font-weight: 500;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            color: var(--primary);
+            pointer-events: none;
+            transition: transform 0.3s ease;
+        }
+
+        select.form-control {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 2.8rem;
+        }
+
+        .checkbox-group-interactive {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .checkbox-tile {
+            position: relative;
+        }
+
+        .checkbox-tile input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .checkbox-tile label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            background-color: var(--light);
+            cursor: pointer;
+            min-height: 90px;
+            font-size: 0.85rem;
+        }
+        .checkbox-tile label i {
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+            color: var(--teal);
+            transition: all 0.25s ease;
+        }
+        .checkbox-tile label:hover {
+            border-color: var(--accent);
+            background-color: #fffefa;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .checkbox-tile input[type="checkbox"]:checked + label {
+            background-color: var(--emerald-green);
+            border-color: var(--emerald-green);
+            color: white;
+            box-shadow: 0 6px 12px rgba(80, 200, 120, 0.25);
+            transform: translateY(-2px) scale(1.02);
+        }
+        .checkbox-tile input[type="checkbox"]:checked + label i {
+            color: white;
+            transform: scale(1.1);
+        }
+        .checkbox-tile input[type="checkbox"]:focus-visible + label {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.25);
+        }
+
+        .step-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.2rem;
+            gap: 1rem;
+        }
+        .step-navigation button {
+            padding: 0.8rem 1.6rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .step-navigation button i {
+            transition: transform 0.25s ease;
+        }
+
+        .next-btn, .submit-btn-final {
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            color: white;
+        }
+        .next-btn:hover, .submit-btn-final:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 18px rgba(255, 126, 95, 0.25);
+        }
+        .next-btn i { margin-left: 0.6rem; }
+        .next-btn:hover i { transform: translateX(4px); }
+
+
+        .prev-btn {
+            background-color: #e9ecef;
+            color: var(--dark);
+            border: 1px solid #ced4da;
+        }
+        .prev-btn:hover {
+            background-color: #dee2e6;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .prev-btn i { margin-right: 0.6rem; }
+        .prev-btn:hover i { transform: translateX(-4px); }
+
+
+        .submit-btn-final {
+            width: auto;
+            flex-grow: 1;
+        }
+        .submit-btn-final i { margin-right: 0.7rem; }
+
+        .terms-group {
+            display: flex;
+            align-items: flex-start; /* Align items to the top for multi-line label */
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+        .terms-group input[type="checkbox"] {
+            margin-right: 0.7rem;
+            margin-top: 0.2rem; /* Align checkbox with first line of text */
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: var(--primary);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .terms-group .policy-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .terms-group .policy-link:hover {
+            text-decoration: underline;
+            color: var(--secondary);
+        }
+
+        .form-submission-message {
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, var(--emerald-green), var(--teal));
+            color: white;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            animation: fadeInScaleUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-submission-message h3 {
+            font-size: 1.7rem;
+            margin-top: 0;
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+        }
+        .form-submission-message h3 i {
+            margin-right: 0.8rem;
+            color: var(--sunshine-yellow);
+            animation: tada 1.5s ease-in-out 0.5s;
+        }
+        .form-submission-message p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeInScaleUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes tada {
+            0% {transform: scale(1);}
+            10%, 20% {transform: scale(0.9) rotate(-3deg);}
+            30%, 50%, 70%, 90% {transform: scale(1.1) rotate(3deg);}
+            40%, 60%, 80% {transform: scale(1.1) rotate(-3deg);}
+            100% {transform: scale(1) rotate(0);}
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        *:focus-visible {
+             outline: 3px solid var(--accent);
+             outline-offset: 2px;
+        }
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+            animation: fadeInModalBackground 0.3s ease-out;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* Adjusted margin for better centering */
+            padding: 25px 30px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 700px; /* Maximum width */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: slideInModalContent 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            max-height: 80vh; /* Limit height and enable scrolling within content */
+            overflow-y: auto; /* Scroll for content */
+        }
+        
+        .modal-content h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .modal-content h3 {
+            color: var(--grape-purple);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-content p, .modal-content li {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--dark);
+            text-align: justify;
+        }
+         .modal-content ul {
+            padding-left: 20px;
+        }
+
+        .modal-close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-btn:hover,
+        .modal-close-btn:focus {
+            color: var(--danger);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInModalBackground {
+            from { background-color: rgba(0,0,0,0); }
+            to { background-color: rgba(0,0,0,0.5); }
+        }
+        @keyframes slideInModalContent {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .registration-wizard { padding: 1.8rem 1.2rem; }
+            .wizard-header .brand-title { font-size: 2.4rem; }
+            .wizard-header h2 { font-size: 1.4rem; }
+            .progress-bar-container { padding: 0; }
+            .progress-step p { font-size: 0.7rem; }
+            .checkbox-group-interactive { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+            .step-navigation {
+                flex-direction: column;
+            }
+            .step-navigation button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            .step-navigation .prev-btn { order: 1; }
+            .step-navigation .next-btn, .step-navigation .submit-btn-final { order: 0;}
+            .form-submission-message { margin: 1.5rem 0; }
+            .modal-content { width: 90%; margin: 10% auto; padding: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .outer-container { margin-top: 10px; }
+            .registration-wizard { padding: 1.2rem 0.8rem; }
+            .wizard-header .brand-title { font-size: 2rem; }
+            .wizard-header h2 { font-size: 1.2rem; }
+            .wizard-header p { font-size: 0.95rem; }
+            .step-title { font-size: 1.3rem; }
+            .form-control { padding: 0.75rem 0.9rem; font-size: 0.9rem;}
+            .checkbox-tile label { padding: 0.8rem 0.5rem; font-size: 0.8rem;}
+            .checkbox-tile label i { font-size: 1.4rem; }
+            .progress-step span { width: 25px; height: 25px; border-width: 2px; }
+            .progress-step p { display: none; }
+            .progress-bar { height: 40px; }
+            .progress-bar::before, .progress-bar-fill { top: 10px; }
+            .step-navigation button { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
+            .form-submission-message h3 { font-size: 1.5rem; }
+            .form-submission-message p { font-size: 1rem; }
+            .modal-content { width: 95%; margin: 15% auto; padding: 15px; max-height: 75vh;}
+            .modal-content h2 { font-size: 1.5rem; }
+            .modal-content h3 { font-size: 1.1rem; }
+            .modal-content p, .modal-content li { font-size: 0.85rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="back-button-main-container">
+        <a href="index.html" class="back-button-main"> <i class="fas fa-arrow-left"></i> Back to Main Page
+        </a>
+    </div>
+
+    <div class="outer-container">
+        <div class="registration-wizard">
+            <div class="wizard-header">
+                <h1 class="brand-title">Bryt Minds</h1>
+                <h2>PYP to MYP Transition Program</h2>
+                <p>Embark on a new learning adventure! Fill out the details below to join us.</p>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                    <div class="progress-step active" data-step="1"><span>1</span><p>Guardian</p></div>
+                    <div class="progress-step" data-step="2"><span>2</span><p>Ward</p></div>
+                    <div class="progress-step" data-step="3"><span>3</span><p>Academics</p></div>
+                    <div class="progress-step" data-step="4"><span>4</span><p>Finish</p></div>
+                </div>
+            </div>
+
+            <div id="successMessage" class="form-submission-message" aria-live="polite" style="display: none;">
+                <h3><i class="fas fa-rocket"></i> Registration Blast Off!</h3>
+                <p>Awesome! You're all set. We're excited to welcome you to Bryt Minds. We'll be in touch shortly!</p>
+                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_jllwjr09.json" background="transparent" speed="1" style="width: 180px; height: 180px; margin: 10px auto;" loop autoplay></lottie-player>
+            </div>
+
+            <form id="registrationForm" action="https://formspree.io/f/mgvkzllz" method="POST" novalidate>
+                <div class="form-step active" id="step1" role="tabpanel" aria-labelledby="step1-tab">
+                    <h3 class="step-title"><i class="fas fa-user-shield"></i> Guardian's Details</h3>
+                    <div class="form-group">
+                        <label for="guardianName" class="required">Your Full Name</label>
+                        <input type="text" id="guardianName" name="guardianName" class="form-control" required aria-required="true" placeholder="e.g., Maria Williams">
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Your Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required aria-required="true" placeholder="e.g., maria.w@example.com">
+                         <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Your Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g., (555) 123-4567">
+                         <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="next-btn" onclick="nextStep(1)">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step2" role="tabpanel" aria-labelledby="step2-tab" style="display: none;">
+                    <h3 class="step-title"><i class="fas fa-child-reaching"></i> Ward's Details</h3>
+                    <div class="form-group">
+                        <label for="wardName" class="required">Ward's Full Name</label>
+                        <input type="text" id="wardName" name="wardName" class="form-control" required aria-required="true" placeholder="e.g., Leo Williams">
+                         <span class="error-message" aria-live="polite"></span>
+                    </div>
+                     <div class="form-group">
+                        <label for="wardEmail">Ward's Email (Optional, if different)</label>
+                        <input type="email" id="wardEmail" name="wardEmail" class="form-control" placeholder="e.g., leo.w@example.com">
+                         <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="next-btn" onclick="nextStep(2)">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step3" role="tabpanel" aria-labelledby="step3-tab" style="display: none;">
+                    <h3 class="step-title"><i class="fas fa-shapes"></i> Academic Focus</h3>
+                    <div class="form-group">
+                        <label for="gradeLevel" class="required">Grade Level Transition</label>
+                        <div class="select-wrapper">
+                            <select id="gradeLevel" name="gradeLevel" class="form-control" required aria-required="true">
+                                <option value="" disabled selected>Select grade journey...</option>
+                                <option value="5to6">From Grade 5 to 6</option>
+                                <option value="6to7">From Grade 6 to 7</option>
+                                <option value="7to8">From Grade 7 to 8</option>
+                            </select>
+                             <span class="error-message" aria-live="polite"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Areas for Special Focus (Choose any)</label>
+                        <div class="checkbox-group-interactive" role="group" aria-label="Subject areas for special support">
+                            <div class="checkbox-tile">
+                                <input type="checkbox" id="math" name="subjects[]" value="Mathematics">
+                                <label for="math"><i class="fas fa-calculator"></i> Mathematics</label>
+                            </div>
+                            <div class="checkbox-tile">
+                                <input type="checkbox" id="science" name="subjects[]" value="Science">
+                                <label for="science"><i class="fas fa-flask-vial"></i> Science</label>
+                            </div>
+                            <div class="checkbox-tile">
+                                <input type="checkbox" id="societies" name="subjects[]" value="Individuals and Societies">
+                                <label for="societies"><i class="fas fa-users-line"></i> Societies</label>
+                            </div>
+                            <div class="checkbox-tile">
+                                <input type="checkbox" id="design" name="subjects[]" value="Design">
+                                <label for="design"><i class="fas fa-compass-drafting"></i> Design</label>
+                            </div>
+                             <div class="checkbox-tile">
+                                <input type="checkbox" id="language" name="subjects[]" value="Language & Literature">
+                                <label for="language"><i class="fas fa-book-open-reader"></i> Language & Lit</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="next-btn" onclick="nextStep(3)">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step4" role="tabpanel" aria-labelledby="step4-tab" style="display: none;">
+                    <h3 class="step-title"><i class="fas fa-feather-pointed"></i> Final Touches</h3>
+                    <div class="form-group">
+                        <label for="additionalInfo">Anything else we should know? (Optional)</label>
+                        <textarea id="additionalInfo" name="additionalInfo" class="form-control" rows="3" placeholder="e.g., specific learning goals, preferred contact times..."></textarea>
+                    </div>
+                    <div class="form-group">
+                         <label for="referral">How did you hear about Bryt Minds? (Optional)</label>
+                        <div class="select-wrapper">
+                            <select id="referral" name="referral" class="form-control">
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="social_media">Social Media (Facebook, Instagram, etc.)</option>
+                                <option value="friend_family">Friend / Family Recommendation</option>
+                                <option value="school">School Recommendation / Teacher</option>
+                                <option value="search_engine">Online Search (Google, Bing, etc.)</option>
+                                <option value="event_workshop">Event / Workshop</option>
+                                <option value="advertisement">Online / Offline Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group terms-group">
+                        <input type="checkbox" id="terms" name="terms" required aria-required="true">
+                        <label for="terms" class="inline-label required">I agree to the 
+                            <span class="policy-link" onclick="openModal('termsModal')">Terms & Conditions</span> and 
+                            <span class="policy-link" onclick="openModal('privacyModal')">Privacy Policy</span>.
+                        </label>
+                         <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn" onclick="prevStep(4)"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="submit" class="submit-btn-final"><i class="fas fa-paper-plane"></i> Submit Registration</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close-btn" onclick="closeModal('termsModal')" role="button" aria-label="Close Terms and Conditions">&times;</span>
+            <h2>Bryt Minds - Terms and Conditions</h2>
+            <p><strong>Last Updated: May 11, 2025</strong></p>
+            <p>Welcome to Bryt Minds! We are excited to help students gain better insight and own their learning journey, particularly during the transition from Primary Years Programme (PYP) to Middle Years Programme (MYP).</p>
+            <p>Please read these Terms and Conditions ("Terms") carefully before registering for or participating in any Bryt Minds program or using our services. By registering, you, as the Guardian, on behalf of yourself and your Ward (the student), agree to be bound by these Terms. If you do not agree to these Terms, please do not register for or use our services.</p>
+            
+            <h3>1. Our Services</h3>
+            <p>Bryt Minds ("we," "us," "our") provides an educational support program designed to assist students in their academic and personal development, focusing on the PYP to MYP transition. This includes but is not limited to, guidance, resources, and support in various subject areas as indicated during registration.</p>
+
+            <h3>2. Eligibility and Registration</h3>
+            <ul>
+                <li><strong>Guardian Consent:</strong> Registration must be completed by a parent or legal guardian ("Guardian") for any student under the age of 18 ("Ward"). By registering, you confirm that you are the legal Guardian and have the authority to agree to these Terms on behalf of your Ward.</li>
+                <li><strong>Accurate Information:</strong> You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.</li>
+                <li><strong>Program Suitability:</strong> While Bryt Minds aims to provide valuable support, it is the Guardian's responsibility to determine if our program is suitable for their Ward's specific needs.</li>
+            </ul>
+
+            <h3>3. Program Participation</h3>
+            <ul>
+                <li><strong>Student Conduct:</strong> We expect all participating Wards to engage respectfully and constructively. Bryt Minds reserves the right to remove any Ward from the program if their conduct is deemed disruptive, disrespectful, or harmful to others, without a refund.</li>
+                <li><strong>Guardian Involvement:</strong> We encourage active Guardian involvement and communication to support the Ward's learning journey.</li>
+            </ul>
+
+            <h3>4. Intellectual Property</h3>
+            <ul>
+                <li>All materials, content, and resources provided by Bryt Minds, including curriculum, worksheets, and online content, are the intellectual property of Bryt Minds or its licensors and are provided for personal, non-commercial educational use by the registered Ward only.</li>
+                <li>You may not reproduce, redistribute, modify, or create derivative works from our materials without our express written permission.</li>
+            </ul>
+
+            <h3>5. Fees and Payment (If Applicable)</h3>
+            <p>Any applicable fees for Bryt Minds programs will be clearly communicated prior to registration. Payment terms, including refund policies, will be specified at the time of enrollment for any paid services. (Currently, this registration form implies a free service, but this clause is included for future-proofing).</p>
+
+            <h3>6. Disclaimers</h3>
+            <ul>
+                <li>Bryt Minds provides its services on an "as is" and "as available" basis. While we strive to provide high-quality educational support, we do not guarantee any specific academic outcomes or improvements for any Ward.</li>
+                <li>The success of the program depends on various factors, including the Ward's engagement, effort, and existing academic foundation.</li>
+                <li>We do not warrant that our services will be uninterrupted, error-free, or completely secure.</li>
+            </ul>
+
+            <h3>7. Limitation of Liability</h3>
+            <ul>
+                <li>To the fullest extent permitted by applicable law, Bryt Minds shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (a) your or your Ward's access to or use of or inability to access or use the services; (b) any conduct or content of any third party on the services; or (c) unauthorized access, use, or alteration of your transmissions or content.</li>
+                <li>In no event shall Bryt Minds' aggregate liability for all claims relating to the services exceed the amount paid by you, if any, for accessing or using the services in the last twelve months.</li>
+            </ul>
+
+            <h3>8. Privacy</h3>
+            <p>Our collection and use of personal information in connection with your access to and use of the Bryt Minds program is described in our Privacy Policy, which is incorporated by reference into these Terms.</p>
+
+            <h3>9. Modifications to Terms or Services</h3>
+            <p>Bryt Minds reserves the right to modify these Terms or any aspect of our services at any time. If we make material changes to these Terms, we will provide you with notice through our website or by email. Your continued use of our services after such modifications will constitute your acknowledgment of the modified Terms and agreement to abide and be bound by the modified Terms.</p>
+
+            <h3>10. Termination</h3>
+            <p>We may terminate or suspend your and your Ward's access to our services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms.</p>
+
+            <h3>11. Governing Law</h3>
+            <p>These Terms shall be governed and construed in accordance with the laws of Ghana, without regard to its conflict of law provisions.</p>
+
+            <h3>12. Contact Us</h3>
+            <p>If you have any questions about these Terms, please contact us via the information provided on our main website or through the contact methods used during the registration follow-up.</p>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close-btn" onclick="closeModal('privacyModal')" role="button" aria-label="Close Privacy Policy">&times;</span>
+            <h2>Bryt Minds - Privacy Policy</h2>
+            <p><strong>Last Updated: May 11, 2025</strong></p>
+            <p>Bryt Minds ("we," "us," "our") is committed to protecting the privacy of our participants. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you register for and participate in the Bryt Minds program. Please read this privacy policy carefully.</p>
+
+            <h3>1. Information We Collect</h3>
+            <p>We may collect personal information directly from Guardians during the registration process. This information may include:</p>
+            <ul>
+                <li><strong>Guardian Information:</strong> Full name, email address, phone number (optional).</li>
+                <li><strong>Ward Information:</strong> Full name, email address (optional, if different from guardian's), current grade level.</li>
+                <li><strong>Academic Information:</strong> Subjects for which special support is requested, additional information provided by the Guardian.</li>
+                <li><strong>Referral Information:</strong> How you heard about Bryt Minds (optional).</li>
+            </ul>
+            <p>We do <strong>not</strong> knowingly collect personal information from Wards directly without Guardian consent. The registration process is designed to be completed by the Guardian.</p>
+
+            <h3>2. How We Use Your Information</h3>
+            <p>Having accurate information allows us to provide a smooth, efficient, and customized experience. Specifically, we may use information collected about you and your Ward to:</p>
+            <ul>
+                <li>Create and manage your Ward's enrollment in the Bryt Minds program.</li>
+                <li>Communicate with you (the Guardian) regarding program details, updates, progress, and other relevant information.</li>
+                <li>Tailor program content and support to the Ward's specified needs.</li>
+                <li>Respond to your inquiries and provide customer support.</li>
+                <li>Gather feedback to improve our services and program offerings.</li>
+                <li>Send you newsletters, updates, or promotional materials related to Bryt Minds, from which you can opt-out.</li>
+                <li>Comply with legal obligations.</li>
+            </ul>
+
+            <h3>3. Disclosure of Your Information</h3>
+            <p>We do not sell, trade, rent, or otherwise transfer your or your Ward's personally identifiable information to outside parties except as described below:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> We use Formspree.io to manage our registration form submissions. Formspree has its own privacy policy regarding the data it processes. We encourage you to review their policy.</li>
+                <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in the good faith belief that such action is necessary to (a) comply with a legal obligation, (b) protect and defend the rights or property of Bryt Minds, (c) act in urgent circumstances to protect the personal safety of users of the program or the public, or (d) protect against legal liability.</li>
+                <li><strong>With Your Consent:</strong> We may disclose your information for other purposes with your explicit consent.</li>
+            </ul>
+
+            <h3>4. Security of Your Information</h3>
+            <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse. Any information disclosed online is vulnerable to interception and misuse by unauthorized parties.</p>
+
+            <h3>5. Data Retention</h3>
+            <p>We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy, or as required by law. Typically, information will be retained for the duration of your Ward's participation in the program and for a reasonable period thereafter for administrative and analytical purposes, or as required for legal or compliance reasons.</p>
+
+            <h3>6. Your Rights Regarding Your Information</h3>
+            <p>You, as the Guardian, have certain rights regarding the personal information we hold about you and your Ward. These may include the right to:</p>
+            <ul>
+                <li>Request access to the personal information we hold.</li>
+                <li>Request correction of any inaccurate or incomplete information.</li>
+                <li>Request deletion of personal information, subject to certain exceptions (e.g., if we are required to retain the data by law).</li>
+                <li>Object to or restrict certain processing of your information.</li>
+            </ul>
+            <p>To exercise these rights, please contact us using the contact information provided on our main website. We will respond to your request within a reasonable timeframe.</p>
+
+            <h3>7. Children's Privacy</h3>
+            <p>Bryt Minds is particularly focused on students transitioning from PYP to MYP. We are committed to protecting the privacy of children. We only collect personal information about children (Wards) through their Guardians during the registration process. We do not knowingly solicit or collect personal information directly from children under the age of 13 (or a higher age threshold if applicable in your jurisdiction) without verifiable parental consent. If we learn that we have collected personal information from a child without Guardian consent, we will take steps to delete that information as quickly as possible.</p>
+
+            <h3>8. Third-Party Websites/Services</h3>
+            <p>Our registration form uses Formspree.io. This Privacy Policy does not apply to third-party websites or services. We are not responsible for the content or privacy and security practices and policies of third parties, including other sites, services, or applications that may be linked to or from our communications.</p>
+
+            <h3>9. Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
+            <h3>10. Contact Us</h3>
+            <p>If you have questions or comments about this Privacy Policy, please contact us via the information provided on our main website or through the contact methods used during the registration follow-up.</p>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        let currentStepGlobal = 1;
+        const totalStepsGlobal = 4;
+        const formElement = document.getElementById('registrationForm');
+        const formSteps = Array.from(formElement.querySelectorAll('.form-step'));
+        const progressBarFillElement = document.getElementById('progressBarFill');
+        const progressStepElements = Array.from(document.querySelectorAll('.progress-step'));
+        const successMessageContainer = document.getElementById('successMessage');
+        const wizardHeaderElement = document.querySelector('.wizard-header');
+        const progressBarContainerElement = document.querySelector('.progress-bar-container');
+
+        // Modal elements
+        const termsModal = document.getElementById('termsModal');
+        const privacyModal = document.getElementById('privacyModal');
+
+        function updateProgressBarState() {
+            const progressPercentage = ((currentStepGlobal - 1) / (totalStepsGlobal -1)) * 100;
+            progressBarFillElement.style.width = `${progressPercentage}%`;
+
+            progressStepElements.forEach((stepEl, index) => {
+                const stepNumber = index + 1;
+                stepEl.classList.remove('active', 'completed');
+                if (stepNumber < currentStepGlobal) {
+                    stepEl.classList.add('completed');
+                } else if (stepNumber === currentStepGlobal) {
+                    stepEl.classList.add('active');
+                }
+            });
+        }
+
+        function displayStep(stepNumberToShow) {
+            formSteps.forEach((stepEl, index) => {
+                const isTargetStep = (index + 1) === stepNumberToShow;
+                if (isTargetStep) {
+                    stepEl.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        stepEl.classList.add('active');
+                        stepEl.classList.remove('exiting');
+                    });
+                } else {
+                    if (stepEl.classList.contains('active')) {
+                        stepEl.classList.add('exiting');
+                        stepEl.addEventListener('animationend', () => {
+                            stepEl.style.display = 'none';
+                            stepEl.classList.remove('active', 'exiting');
+                        }, { once: true });
+                    } else {
+                         stepEl.style.display = 'none';
+                         stepEl.classList.remove('active', 'exiting');
+                    }
+                }
+            });
+            currentStepGlobal = stepNumberToShow;
+            updateProgressBarState();
+            wizardHeaderElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function runFieldValidation(field) {
+            const errorMessageSpan = field.closest('.form-group').querySelector('.error-message');
+            let message = '';
+            field.classList.remove('invalid'); 
+
+            if (field.required && !field.value.trim() && field.type !== 'checkbox') {
+                message = (field.labels[0] ? field.labels[0].textContent.replace(' *','').replace(':','').trim() : 'This field') + ' is required.';
+                 // For terms checkbox, the label is complex, so a generic message is better.
+                if (field.id === 'terms') {
+                     message = 'You must agree to the Terms & Conditions and Privacy Policy.';
+                }
+            } else if (field.type === 'email' && field.value.trim() && !/^\S+@\S+\.\S+$/.test(field.value.trim())) {
+                message = 'Please enter a valid email address.';
+            } else if (field.type === 'checkbox' && field.required && !field.checked) {
+                 message = 'You must agree to the Terms & Conditions and Privacy Policy.';
+            }
+
+
+            if (message) {
+                field.classList.add('invalid');
+                if (errorMessageSpan) errorMessageSpan.textContent = message;
+                return false;
+            } else {
+                if (errorMessageSpan) errorMessageSpan.textContent = '';
+                return true;
+            }
+        }
+
+        function validateCurrentStep(stepNumber) {
+            let isStepValid = true;
+            const currentStepElement = formSteps[stepNumber - 1];
+            const fieldsToValidate = currentStepElement.querySelectorAll('[required], input[type="email"]:not([required])');
+
+            fieldsToValidate.forEach(field => {
+                if (field.type === 'email' && !field.required && !field.value.trim()){
+                    field.classList.remove('invalid');
+                    const ems = field.closest('.form-group').querySelector('.error-message');
+                    if(ems) ems.textContent = '';
+                    return; 
+                }
+                if (!runFieldValidation(field)) {
+                    isStepValid = false;
+                }
+            });
+            return isStepValid;
+        }
+
+        window.nextStep = function(currentDisplayedStep) {
+            if (validateCurrentStep(currentDisplayedStep)) {
+                if (currentStepGlobal < totalStepsGlobal) {
+                    displayStep(currentStepGlobal + 1);
+                }
+            } else {
+                const firstInvalidField = formSteps[currentDisplayedStep - 1].querySelector('.invalid');
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                    formSteps[currentDisplayedStep - 1].classList.add('shake');
+                    setTimeout(() => {
+                         formSteps[currentDisplayedStep - 1].classList.remove('shake');
+                    }, 500);
+                }
+            }
+        }
+
+        window.prevStep = function(currentDisplayedStep) { // Changed parameter to currentDisplayedStep for consistency
+            if (currentStepGlobal > 1) {
+                // No validation needed when going back, just display the previous step
+                displayStep(currentStepGlobal - 1);
+            }
+        }
+        
+        // Modal functions
+        window.openModal = function(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = "block";
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        window.closeModal = function(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == termsModal) {
+                closeModal('termsModal');
+            }
+            if (event.target == privacyModal) {
+                closeModal('privacyModal');
+            }
+        }
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                if (termsModal.style.display === "block") closeModal('termsModal');
+                if (privacyModal.style.display === "block") closeModal('privacyModal');
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayStep(1); 
+
+            formElement.querySelectorAll('input, select, textarea').forEach(input => {
+                input.addEventListener('blur', function() { runFieldValidation(this); });
+                if (input.type === 'checkbox' || input.tagName.toLowerCase() === 'select') {
+                    input.addEventListener('change', function() { runFieldValidation(this); });
+                }
+            });
+        });
+
+        formElement.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            if (!validateCurrentStep(totalStepsGlobal)) { // Validate the final step
+                const firstInvalidField = formSteps[totalStepsGlobal - 1].querySelector('.invalid');
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                     formSteps[totalStepsGlobal - 1].classList.add('shake');
+                    setTimeout(() => {
+                         formSteps[totalStepsGlobal - 1].classList.remove('shake');
+                    }, 500);
+                }
+                return;
+            }
+
+            const submitButton = formElement.querySelector('.submit-btn-final');
+            const originalButtonHTML = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitButton.disabled = true;
+
+            try {
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formElement.style.display = 'none';
+                    progressBarContainerElement.style.display = 'none';
+                    successMessageContainer.style.display = 'block';
+                    wizardHeaderElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const lottiePlayer = successMessageContainer.querySelector('lottie-player');
+                    if (lottiePlayer) lottiePlayer.play();
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    let errorMessage = 'Oops! There was a problem submitting your form.';
+                    if (data && data.errors && data.errors.length > 0) {
+                        errorMessage = data.errors.map(err => err.message || 'Validation error').join('\n');
+                    } else if (data && data.error) {
+                        errorMessage = data.error;
+                    }
+                    alert(errorMessage + '\nPlease check your entries and try again.');
+                    submitButton.innerHTML = originalButtonHTML;
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An unexpected error occurred. Please check your internet connection and try again later.');
+                submitButton.innerHTML = originalButtonHTML;
+                submitButton.disabled = false;
+            }
+        });
+
+        const styleSheetForShake = document.createElement("style");
+        styleSheetForShake.type = "text/css";
+        styleSheetForShake.innerText = `
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-7px); }
+          20%, 40%, 60%, 80% { transform: translateX(7px); }
+        }
+        .shake {
+          animation: shake 0.4s ease-in-out;
+        }`;
+        document.head.appendChild(styleSheetForShake);
+
+    </script>
+</body>
+</html>
