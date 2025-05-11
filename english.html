@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English | Bryt Minds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #ff7e5f;
+            --accent: #f9c74f;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #90be6d;
+            --info: #43aa8b;
+            --warning: #f8961e;
+            --danger: #f94144;
+            --purple: #9d4edd;
+            --teal: #4ecdc4;
+             --english-primary: #7e22ce; /* Using a specific purple for English theme */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+             /* Using English specific color */
+            background: linear-gradient(135deg, var(--purple), var(--english-primary));
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Flashcard Styles */
+        .week-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            /* Using English specific color */
+            border-top: 6px solid var(--english-primary);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .week-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+             /* Using English specific color */
+            background: linear-gradient(135deg, rgba(126, 34, 206, 0.05) 0%, rgba(255,255,255,0) 100%);
+            z-index: 0;
+        }
+
+        .week-title {
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            color: var(--dark);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .week-title::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+             /* Using English specific color */
+            background: var(--english-primary);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .week-focus {
+            font-weight: 600;
+            margin-bottom: 1rem;
+             /* Using English specific color */
+            color: var(--english-primary);
+            padding: 0.5rem;
+            background: rgba(126, 34, 206, 0.1); /* Matching background with primary */
+            border-radius: 6px;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .week-card ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .week-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .week-card ul li::before {
+            content: "•";
+             /* Using English specific color */
+            color: var(--english-primary);
+            font-weight: bold;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+        }
+
+        .activity-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .activity-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(249, 199, 79, 0.2);
+        }
+
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .activity-title i {
+            margin-right: 8px;
+            color: var(--accent);
+        }
+
+        /* English specific styles */
+        .english-card {
+             /* Using English specific color */
+            border-top-color: var(--english-primary);
+        }
+        .english-card .week-title::before,
+        .english-card ul li::before {
+             /* Using English specific color */
+            color: var(--english-primary);
+        }
+        .english-card .activity-box {
+             /* Using English specific color */
+            border-left-color: var(--english-primary);
+        }
+
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease-in-out;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .subject-header {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subject-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subject-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem 3rem;
+        }
+
+        .topics-section, .resources-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .topic-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+             /* Using English specific color */
+            background: var(--english-primary);
+        }
+
+        .resource-item:nth-child(1) .resource-icon { background: var(--english-primary); } /* Example specific icon colors */
+        .resource-item:nth-child(2) .resource-icon { background: var(--primary); }
+        .resource-item:nth-child(3) .resource-icon { background: var(--info); }
+        .resource-item:nth-child(4) .resource-icon { background: var(--secondary); }
+
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .sidebar-nav a i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            background: linear-gradient(to right, var(--primary), var(--purple));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .intro {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro h1 {
+            margin-top: 0;
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.7);
+            z-index: 0;
+        }
+
+        .intro > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 5px solid;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-1 { border-color: var(--primary); }
+        .card-2 { border-color: var(--success); }
+        .card-3 { border-color: var(--accent); }
+        .card-4 { border-color: var(--danger); }
+        .card-5 { border-color: var(--purple); }
+        .card-6 { border-color: var(--teal); }
+
+        .dashboard-card h3 {
+            margin-top: 0;
+            color: inherit;
+            font-size: 1.3rem;
+        }
+
+        .dashboard-card .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: inherit;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .subject {
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-left: 4px solid;
+        }
+
+        .subject:nth-child(1) { border-color: var(--primary); }
+        .subject:nth-child(2) { border-color: var(--success); }
+        .subject:nth-child(3) { border-color: var(--warning); }
+        .subject:nth-child(4) { border-color: var(--danger); }
+        .subject:nth-child(5) { border-color: var(--purple); }
+
+        .subject:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .progress-container {
+            margin-top: 1.5rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+
+        .progress-1 { background: var(--primary); width: 75%; }
+        .progress-2 { background: var(--success); width: 90%; }
+        .progress-3 { background: var(--accent); width: 60%; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--purple);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary), var(--danger));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--danger);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark), #1a1a2e);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+            grid-column: 1 / -1;
+        }
+
+        footer .logo {
+            font-size: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            opacity: 0.7;
+            animation: confettiFall 5s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            background: rgba(255,255,255,0.8);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .countdown span {
+            color: var(--primary);
+        }
+
+        .calendar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .calendar-day {
+            text-align: center;
+            font-weight: bold;
+            padding: 0.3rem;
+            color: var(--primary);
+        }
+
+        .calendar-date {
+            text-align: center;
+            padding: 0.8rem 0.3rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .calendar-date:hover {
+            background: var(--light);
+        }
+
+        .current-month {
+            font-weight: 500;
+        }
+
+        .event-date {
+            background: var(--accent);
+            color: white;
+            font-weight: bold;
+        }
+
+        #contactForm input,
+        #contactForm textarea,
+        #contactForm button {
+            box-sizing: border-box;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            background: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 0;
+        }
+
+        .mobile-nav-list {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.8rem;
+            padding: 0.5rem;
+        }
+
+        .mobile-nav-icon {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Pretest Specific Styles */
+        #pretest-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+             /* Using English specific color */
+            border-top: 6px solid var(--english-primary);
+        }
+
+        #pretest-section h2 {
+             /* Using English specific color */
+            color: var(--english-primary);
+            margin-top: 0;
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .question input[type="radio"],
+        .question input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+         .pretest-button {
+            display: inline-block;
+            /* Using English specific color */
+            background-color: var(--english-primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .pretest-button:hover {
+             transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+             /* Slightly darker English primary on hover */
+            background-color: #631aab;
+        }
+
+        /* Style for score display */
+        #pretest-results {
+            margin-top: 2rem;
+            padding: 1.5rem;
+             /* Using info color for results */
+            background: var(--info);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: none; /* Initially hidden */
+        }
+
+        #pretest-results h3 {
+            margin-top: 0;
+            color: white;
+        }
+
+        #pretest-results p {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* Style for individual question feedback */
+        .question .feedback {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.3); /* Light border for feedback */
+            font-size: 0.9rem;
+        }
+
+        .question .feedback.correct {
+             color: var(--success); /* Green text for correct answers */
+             font-weight: bold;
+        }
+
+         .question .feedback.incorrect {
+             color: var(--danger); /* Red text for incorrect answers */
+             font-weight: bold;
+        }
+
+        /* Hide the original button after submission */
+        #submit-pretest-button.hidden {
+            display: none;
+        }
+
+        /* Style for the new Proceed button */
+         #proceed-lessons-button {
+            display: none; /* Initially hidden */
+            margin-top: 1.5rem;
+            background-color: var(--primary); /* Using primary color for proceed button */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        #proceed-lessons-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background-color: #3a5f90; /* Slightly darker primary on hover */
+        }
+
+
+        /* Initially hide the lessons content */
+        #weekly-lessons {
+            display: none;
+        }
+
+
+        /* --- Responsive Adjustments --- */
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+             .sidebar-nav {
+                 display: flex;
+                 flex-wrap: wrap;
+                 justify-content: center;
+                 gap: 0.8rem;
+             }
+
+             .sidebar-nav li {
+                 margin-bottom: 0;
+             }
+
+             .sidebar-nav a {
+                 padding: 0.6rem 1rem;
+                 flex-direction: row;
+             }
+
+             .sidebar-nav a i {
+                 margin-right: 0.5rem;
+             }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+             .calendar {
+                 margin-top: 1.5rem;
+             }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+             header {
+                 padding: 2rem 1rem;
+             }
+
+            .container {
+                padding: 1.5rem 0.8rem;
+            }
+
+             section {
+                 padding: 1.5rem;
+             }
+
+             .intro {
+                 padding: 2rem;
+             }
+
+             .intro h1 {
+                 font-size: 2rem;
+             }
+
+             .intro p {
+                 font-size: 1rem;
+             }
+
+            .dashboard-cards {
+                grid-template-columns: 1fr;
+            }
+
+             .subject-grid {
+                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+             }
+
+             .stats-grid {
+                 grid-template-columns: 1fr;
+             }
+
+             .stat-card {
+                 padding: 1.2rem;
+             }
+
+             .stat-card h3 {
+                 font-size: 1.1rem;
+             }
+
+             .stat-number {
+                 font-size: 2rem;
+             }
+
+             .cta-section {
+                 padding: 2rem 1.5rem;
+             }
+
+             .cta-button {
+                 padding: 0.8rem 2rem;
+                 font-size: 1rem;
+             }
+
+            #contactForm div {
+                 grid-template-columns: 1fr !important;
+             }
+
+             #contactForm div input,
+             #contactForm textarea {
+                 padding: 0.8rem;
+             }
+
+             #contactForm button {
+                 padding: 0.8rem;
+                 font-size: 1rem;
+             }
+
+             footer {
+                 padding: 2rem 1rem;
+             }
+
+             footer .logo {
+                 font-size: 1.8rem;
+             }
+
+             .social-link {
+                 width: 35px;
+                 height: 35px;
+                 font-size: 1.1rem;
+             }
+
+             .countdown {
+                 font-size: 1.2rem;
+                 padding: 0.6rem 1rem;
+             }
+
+             .calendar {
+                 padding: 1rem;
+             }
+
+             .calendar-title {
+                 font-size: 1.1rem;
+             }
+
+             .calendar-grid {
+                 gap: 0.2rem;
+                 font-size: 0.8rem;
+             }
+
+             .calendar-day {
+                 padding: 0.2rem;
+             }
+
+             .calendar-date {
+                 padding: 0.6rem 0.2rem;
+             }
+        }
+
+         @media (max-width: 480px) {
+             .logo {
+                 font-size: 2rem;
+             }
+
+             .tagline {
+                 font-size: 1.1rem;
+             }
+
+             .intro h1 {
+                 font-size: 1.8rem;
+             }
+
+             .countdown {
+                 font-size: 1rem;
+                 padding: 0.5rem 0.8rem;
+             }
+
+             .subject-grid {
+                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+             }
+
+             /* Show mobile nav and hide sidebar on small screens */
+             .sidebar {
+                 display: none;
+             }
+
+             .mobile-nav {
+                 display: block;
+             }
+
+             .container {
+                 padding-bottom: 60px;
+             }
+         }
+
+    </style>
+</head>
+<body>
+    <header class="subject-header" style="background: linear-gradient(135deg, var(--purple), var(--english-primary));">
+        <h1>English Language & Literature</h1>
+        <p>Developing analytical reading, structured writing, and oral communication skills</p>
+    </header>
+
+    <div class="subject-content">
+        <a href="index.html" class="back-link" onclick="window.location.href='index.html#subjects'; return false;">
+            <i class="fas fa-arrow-left"></i> Back to Subjects
+        </a>
+
+        <div id="pretest-section">
+            <h2>English Pretest</h2>
+            <p>Please complete this short pretest to assess your current English skills before starting the lessons.</p>
+
+            <form id="pretest-form">
+                <div class="question" data-question="q1">
+                    <p>1. Identify the subject in the following sentence: "The quick brown fox jumps over the lazy dog."</p>
+                    <label><input type="radio" name="q1" value="a"> jumps</label>
+                    <label><input type="radio" name="q1" value="b"> fox</label>
+                    <label><input type="radio" name="q1" value="c"> dog</label>
+                    <label><input type="radio" name="q1" value="d"> quick brown fox</label>
+                    <div class="feedback"></div> </div>
+
+                <div class="question" data-question="q2">
+                    <p>2. Which of the following is a synonym for 'benevolent'?</p>
+                    <label><input type="radio" name="q2" value="a"> cruel</label>
+                    <label><input type="radio" name="q2" value="b"> kind</label>
+                    <label><input type="radio" name="q2" value="c"> angry</label>
+                    <label><input type="radio" name="q2" value="d"> lazy</label>
+                     <div class="feedback"></div> </div>
+
+                 <div class="question" data-question="q3">
+                    <p>3. What is the correct punctuation for the end of a question?</p>
+                    <label><input type="radio" name="q3" value="a"> . (period)</label>
+                    <label><input type="radio" name="q3" value="b"> ! (exclamation mark)</label>
+                    <label><input type="radio" name="q3" value="c"> ? (question mark)</label>
+                    <label><input type="radio" name="q3" value="d"> , (comma)</label>
+                     <div class="feedback"></div> </div>
+
+                <div class="question" data-question="q4">
+                    <p>4. Choose the sentence that uses correct subject-verb agreement.</p>
+                    <label><input type="radio" name="q4" value="a"> The dogs barks loudly.</label>
+                    <label><input type="radio" name="q4" value="b"> The dog bark loudly.</label>
+                    <label><input type="radio" name="q4" value="c"> The dog barks loudly.</label>
+                    <label><input type="radio" name="q4" value="d"> The dogs barked loudly.</label>
+                     <div class="feedback"></div> </div>
+
+
+                <button type="submit" id="submit-pretest-button" class="pretest-button">Submit Pretest</button>
+            </form>
+
+            <div id="pretest-results">
+                <h3>Your Pretest Results</h3>
+                <p id="score-display"></p>
+                <button id="proceed-lessons-button">Proceed to Weekly Lessons</button>
+            </div>
+            </div>
+        <div id="weekly-lessons">
+             
+
+            <div class="week-card english-card">
+                <h3 class="week-title">Week 1: Reading Strategies</h3>
+                <p class="week-focus">Focus: Developing critical reading and annotation skills</p>
+                <ul>
+                    <li>Active reading techniques</li>
+                    <li>Identifying themes and motifs</li>
+                    <li>Text annotation methods</li>
+                </ul>
+                <div class="activity-box english-card">
+                    <div class="activity-title">Activity: "Short Story Analysis"</div>
+                    <p>Students read and annotate a short story, identifying key literary elements.</p>
+                </div>
+            </div>
+
+            <div class="week-card english-card">
+                <h3 class="week-title">Week 2: Writing (PEEL Paragraphs)</h3>
+                <p class="week-focus">Focus: Structured academic writing with evidence</p>
+                <ul>
+                    <li>PEEL paragraph structure</li>
+                    <li>Selecting appropriate evidence</li>
+                    <li>Developing explanations</li>
+                </ul>
+                <div class="activity-box english-card">
+                    <div class="activity-title">Activity: "Persuasive Paragraph"</div>
+                    <p>Students write a PEEL paragraph arguing a position on a current issue.</p>
+                </div>
+            </div>
+
+            <div class="week-card english-card">
+                <h3 class="week-title">Week 3: Speaking & Listening</h3>
+                <p class="week-focus">Focus: Developing confident oral communication skills</p>
+                <ul>
+                    <li>Public speaking techniques</li>
+                    <li>Active listening strategies</li>
+                    <li>Constructive feedback</li>
+                </ul>
+                <div class="activity-box english-card">
+                    <div class="activity-title">Activity: "Mini-Ted Talk"</div>
+                    <p>Students prepare and deliver a 2-minute presentation on a topic of interest.</p>
+                </div>
+            </div>
+
+            <div class="week-card english-card">
+                <h3 class="week-title">Week 4: Creative Writing</h3>
+                <p class="week-focus">Focus: Developing narrative voice and structure</p>
+                <ul>
+                    <li>Elements of storytelling</li>
+                    <li>Character development</li>
+                    <li>Descriptive language</li>
+                </ul>
+                <div class="activity-box english-card">
+                    <div class="activity-title">Assessment: "Short Story Creation"</div>
+                    <p>Students write an original short story demonstrating narrative techniques.</p>
+                </div>
+            </div>
+
+            <div class="resources-section">
+                <h2><i class="fas fa-tools" style="color: var(--english-primary);"></i> Resources You'll Need</h2>
+
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h3>Literature Texts</h3>
+                        <p>Short stories and excerpts provided digitally</p>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-icon" style="background: var(--primary);">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div>
+                        <h3>Writing Journal</h3>
+                        <p>For creative writing and reflections</p>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-icon" style="background: var(--info);">
+                        <i class="fas fa-highlighter"></i>
+                    </div>
+                    <div>
+                        <h3>Annotation Tools</h3>
+                        <p>Highlighters and sticky notes for text analysis</p>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-icon" style="background: var(--secondary);">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div>
+                        <h3>Word Processor</h3>
+                        <p>For drafting and editing written work</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div class="mobile-nav">
+        <ul class="mobile-nav-list">
+            <li>
+                <a href="#dashboard" class="mobile-nav-link">
+                    <i class="fas fa-home mobile-nav-icon"></i>
+                    Home
+                </a>
+            </li>
+             <li>
+                <a href="#subjects" class="mobile-nav-link">
+                    <i class="fas fa-book-open mobile-nav-icon"></i>
+                    Subjects
+                </a>
+            </li>
+             <li>
+                <a href="#progress" class="mobile-nav-link">
+                    <i class="fas fa-chart-line mobile-nav-icon"></i>
+                    Progress
+                </a>
+            </li>
+             <li>
+                <a href="#calendar" class="mobile-nav-link">
+                    <i class="fas fa-calendar-alt mobile-nav-icon"></i>
+                    Calendar
+                </a>
+            </li>
+             <li>
+                <a href="#contact" class="mobile-nav-link">
+                    <i class="fas fa-envelope mobile-nav-icon"></i>
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">Bryt Minds</div>
+        <p>Empowering PYP to MYP Transitions</p>
+        <p>&copy; 2025 Bryt Minds. All rights reserved.</p>
+        <div class="social-links">
+             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+             <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <script>
+        // Get references to the relevant elements
+        const pretestSection = document.getElementById('pretest-section');
+        const pretestForm = document.getElementById('pretest-form');
+        const submitPretestButton = document.getElementById('submit-pretest-button');
+        const pretestResults = document.getElementById('pretest-results');
+        const scoreDisplay = document.getElementById('score-display');
+        const proceedLessonsButton = document.getElementById('proceed-lessons-button');
+        const weeklyLessonsSection = document.getElementById('weekly-lessons');
+
+        // Define the correct answers for the English pretest
+        const correctAnswers = {
+            q1: 'd', // the quick brown fox
+            q2: 'b', // kind
+            q3: 'c', // ? (question mark)
+            q4: 'c'  // The dog barks loudly.
+        };
+
+        // Event listener for submitting the pretest form
+        pretestForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const questions = pretestForm.querySelectorAll('.question');
+
+            questions.forEach(questionDiv => {
+                const questionName = questionDiv.dataset.question; // Get the question identifier
+                const selectedAnswer = questionDiv.querySelector(`input[name="${questionName}"]:checked`);
+                const feedbackDiv = questionDiv.querySelector('.feedback');
+                feedbackDiv.textContent = ''; // Clear previous feedback
+                feedbackDiv.classList.remove('correct', 'incorrect'); // Remove previous feedback classes
+
+                if (selectedAnswer) {
+                    const userAnswer = selectedAnswer.value;
+                    const correctAnswer = correctAnswers[questionName];
+
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                        feedbackDiv.textContent = 'Correct!';
+                        feedbackDiv.classList.add('correct');
+                    } else {
+                        // Find the text of the correct answer option
+                        const correctAnswerLabel = questionDiv.querySelector(`input[value="${correctAnswer}"]`).parentElement;
+                        const correctAnswerText = correctAnswerLabel.textContent.trim();
+
+                        feedbackDiv.textContent = `Incorrect. The correct answer is: ${correctAnswerText}`;
+                        feedbackDiv.classList.add('incorrect');
+                    }
+
+                     // Optional: Disable all radio buttons for this question after submission
+                    questionDiv.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+
+                } else {
+                    // Handle case where no answer is selected (optional)
+                    feedbackDiv.textContent = 'No answer selected.';
+                     feedbackDiv.classList.add('incorrect');
+                }
+            });
+
+            // Display the score
+            scoreDisplay.textContent = `You scored ${score} out of ${totalQuestions}.`;
+
+            // Show the results section and the "Proceed" button
+            pretestResults.style.display = 'block';
+            proceedLessonsButton.style.display = 'inline-block';
+
+            // Hide the submit button
+            submitPretestButton.classList.add('hidden');
+
+            // Scroll to the results section
+             pretestResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Event listener for the "Proceed to Weekly Lessons" button
+        proceedLessonsButton.addEventListener('click', () => {
+            // Hide the pretest section
+            pretestSection.style.display = 'none';
+
+            // Show the weekly lessons section
+            weeklyLessonsSection.style.display = 'block'; // Or 'grid' as appropriate
+
+            // Scroll to the top of the lessons section
+            weeklyLessonsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Handle the back link
+        const backLink = document.querySelector('.back-link');
+        if (backLink) {
+            backLink.addEventListener('click', function(event) {
+                // Allow the link to navigate unless we are on the pretest/lessons page
+                // This simple check assumes the back link only appears on this page after loading.
+                // In a more complex app, you'd need more sophisticated state management.
+                if (pretestSection.style.display !== 'none' || weeklyLessonsSection.style.display !== 'none') {
+                     event.preventDefault();
+                    // Reset state if navigating back from lessons or pretest results
+                    weeklyLessonsSection.style.display = 'none';
+                    pretestSection.style.display = 'block';
+                    pretestResults.style.display = 'none'; // Hide results if shown
+                    proceedLessonsButton.style.display = 'none'; // Hide proceed button
+                    submitPretestButton.classList.remove('hidden'); // Show submit button again
+
+                     // Re-enable radio buttons and clear feedback
+                     pretestForm.reset(); // Resets the form (clears selections)
+                     pretestSection.querySelectorAll('.feedback').forEach(div => div.textContent = ''); // Clear feedback text
+                     pretestSection.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = false); // Re-enable radio buttons
+
+                    pretestSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                 // If neither section is visible, the link will perform its default navigation.
+            });
+        }
+
+    </script>
+</body>
+</html>
